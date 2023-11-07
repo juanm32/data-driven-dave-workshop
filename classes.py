@@ -1,4 +1,4 @@
-import newrelic.agent
+# import newrelic.agent
 
 import sys
 from math import floor
@@ -126,14 +126,14 @@ class Screen(object):
     def isXInScreen(self, x):
         return (x >= self.x_pos) and (x < self.x_pos + self.getWidthInTiles())
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printTile(self, x, y, tile_graphic):
         scaled_x = x * TILE_SCALE_FACTOR
         scaled_y = y * TILE_SCALE_FACTOR
 
         self.display.blit(tile_graphic, (scaled_x, scaled_y))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printMap(self, map, tileset):
         for y, row in enumerate(map.getNodeMatrix()):
             for x, col in enumerate(row):
@@ -148,7 +148,7 @@ class Screen(object):
                         tileset)  # get the tile graphic
                     self.printTile(absolute_x, absolute_y, tile_graphic)
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printPlayer(self, player, player_x, player_y, tileset):
         player_graphic = player.getGraphic(tileset)
         player.copyDirectionToSprite()
@@ -158,7 +158,7 @@ class Screen(object):
 
         self.printTile(player_x, player_y, player_graphic)
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printTitlepicBorder(self, tileset):
         for x in range(0, 20):
             for y in range(0, 11):
@@ -168,7 +168,7 @@ class Screen(object):
                     self.printTile(absolute_x, absolute_y,
                                    Scenery().getGraphic(tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def moveScreenX(self, map, amount, tileset, ui_tileset, player, level_number):
         screen_shift = 0
         reached_level_left_boundary = (self.x_pos <= 0)
@@ -204,7 +204,7 @@ class Screen(object):
     UI Methods
     '''
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printOverlays(self, ui_tileset):
         top_overlay = Scenery("topoverlay", 0)
         bottom_overlay = Scenery("bottomoverlay", 0)
@@ -212,7 +212,7 @@ class Screen(object):
         self.printTile(0, BOTTOM_OVERLAY_POS,
                        bottom_overlay.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printText(self, text, x, y):
         graphic_text = self.font.render(text, 1, (255, 255, 255))
 
@@ -221,7 +221,7 @@ class Screen(object):
 
         self.display.blit(graphic_text, (scaled_x, scaled_y))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printTextAlignedInCenter(self, text, y):
         graphic_text = self.font.render(text, 1, (255, 255, 255))
         graphic_text_width = graphic_text.get_rect().width
@@ -231,13 +231,13 @@ class Screen(object):
 
         self.display.blit(graphic_text, (scaled_x, scaled_y))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def printUi(self, ui_tileset, player, level_number):
         self.updateUiScore(player.getScore(), ui_tileset)
         self.updateUiLevel(level_number, ui_tileset)
         self.updateUiDaves(player.getLives(), ui_tileset)
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiScore(self, score, ui_tileset):
         # score text
         score_text = Scenery("scoretext", 0)
@@ -250,7 +250,7 @@ class Screen(object):
             numbers.setGfxId(int(leadingzeroes_score[digit]))
             self.printTile(60 + 8 * digit, 0, numbers.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiLevel(self, level_number, ui_tileset):
         # level text
         level_text = Scenery("leveltext", 0)
@@ -263,7 +263,7 @@ class Screen(object):
             numbers.setGfxId(int(leadingzeroes_level[digit]))
             self.printTile(170 + 8 * digit, 0, numbers.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiDaves(self, life_amount, ui_tileset):
         # daves text
         daves_text = Scenery("davestext", 0)
@@ -275,19 +275,19 @@ class Screen(object):
             self.printTile(270 + 14 * index, 0,
                            dave_icon.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiTrophy(self, ui_tileset):
         text = Scenery("gothrudoortext", 0)
         self.printTile(70, 184, text.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiGun(self, ui_tileset):
         gun_icon = Scenery("gunicon", 0)
         gun_text = Scenery("guntext", 0)
         self.printTile(285, 170, gun_icon.getGraphic(ui_tileset))
         self.printTile(240, 170, gun_text.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def updateUiJetpack(self, ui_tileset, gas_amount):
         jetpack_text = Scenery("jetpacktext", 0)
         jetpack_meter = Scenery("jetpackmeter", 0)
@@ -300,7 +300,7 @@ class Screen(object):
             self.printTile(73 + 2 * index, 173,
                            jetpack_bar.getGraphic(ui_tileset))
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def clearBottomUi(self, ui_tileset):
         black_tile = Scenery("blacktile", 0)
         self.printTile(0, 170, black_tile.getGraphic(ui_tileset))
@@ -456,7 +456,7 @@ class Map(object):
         else:
             return COLLISION.NONE
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def checkPlayerCollision(self, player_x, player_y, player_width, player_height, solid_only=False):
         TOLERANCE_VALUE = 3  # the dave can walk a little bit "into" the blocks
 
@@ -488,7 +488,7 @@ class Map(object):
     def isPlayerCollidingWithSolid(self, player_x, player_y, player_width=20, player_height=16):
         return (self.checkPlayerCollision(player_x, player_y, player_width, player_height, True)[0] == COLLISION.SOLID)
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def spawnFriendlyFire(self, direction):
         if (direction == DIRECTION.RIGHT) or (direction == DIRECTION.IDLE):
             shot = Shot()
@@ -499,7 +499,7 @@ class Map(object):
 
         return shot
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def checkShotCollision(self, shot_x, shot_y, shot_width=12, shot_height=3):
         x_left = int(shot_x // 16)
         y_top = int(shot_y // 16)
@@ -529,7 +529,7 @@ class Map(object):
     Level construction
     '''
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def buildLevel(self, level_number):
         # open the level in the txt
         textmap = open("levels/" + str(level_number) + ".txt", 'r')
@@ -554,7 +554,7 @@ class Map(object):
                 self.setNodeTile(x, y, tile_type)
                 x += 1
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def initPlayerPositions(self, spawner_id, player):
         player.setCurrentState(STATE.BLINK)
         player.setDirectionX(DIRECTION.IDLE)
@@ -569,7 +569,7 @@ class Map(object):
 
         return (player_position_x, player_position_y)
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def tileFromText(self, text_tile):
         # if the tile has an index, store it
         try:
@@ -1356,7 +1356,7 @@ class Player(Dynamic):
                     self.setCurrentState(STATE.FALL)
                     self.velocity_y = self.MAX_SPEED_Y
 
-    @newrelic.agent.background_task()
+    # @newrelic.agent.background_task()
     def inventoryInput(self, key):
         # ignore states that don't interact with the level
         if self.cur_state in [STATE.ENDMAP, STATE.DESTROY]:
@@ -1483,11 +1483,13 @@ class Player(Dynamic):
         # increment score
         self.score += item.getScore()
 
+        '''
         event_type = "CollectedItem"
         params = {'item.id': item.getId(), 'item.score': item.getScore(), 'item.type': item.getType(),
                   'item.isEquipment': itemIsEquipment, 'levelNumber': self.currentLevelNumber, 'item.gfx_id': self.gfx_id}
         newrelic.agent.record_custom_event(
             event_type, params, application=newrelic.agent.application())
+    	'''
 
         # if the player got to a certain score, give one life to him
         if self.score % 5000 == 0:
