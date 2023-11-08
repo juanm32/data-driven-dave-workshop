@@ -4,7 +4,7 @@ If you don't already know why you need a monitoring and observability solution, 
 
 What if - and hear us out - you could play around with a monitoring solution AND PLAY A VIDEO GAME at the same time?!? WE KNOW, RIGHT?!?
 
-That's what this example is all about. Install a game, set it up in New Relic, and then play the game to see your stats. 
+That's what this workshop is all about. Install a game, set it up in New Relic, and then play the game to see your stats. 
 
 Dangerous Dave was a classic 1980's side-scroller style game that many spent hours playing when we should have been doing productive work. Now we've turned the tables, making Dave help with our actual work.
 
@@ -38,7 +38,7 @@ Refer to our [detailed instructions](instructions/detailed_install.md) for step 
 ## Running the program
 
 - You can run either of the main python scripts located at the root of the repository: `python3 main_oo.py` or `python3 main_fun.py`. This should start the game immediately.
-- **Note:** Only `main_fun.py` has been instrumented to send data to New Relic.
+- **Note:** During the workshop only `main_fun.py` will be instrumented to send data to New Relic.
 
 ## Playing the game
 
@@ -46,23 +46,22 @@ Here are some hints to play the game:
  - To start the game play, hit the spacebar.
  - To end a game in the middle, hit esc.
  - To be able to get through the door on each level, you need to collect the gold chalice / trophy.
- - Some statistics (like the Items Collected) will show on the New Relic dashboard immediately. Others (like the # of games played or top score) won't update until you completely 
+ - Some statistics (like the Items Collected) will show on the New Relic dashboard immediately. Others (like the # of games played or top score) won't update until at least one game has been completed. 
  - Movement:
    - left/right: walk/fly/jump left or right
    - up: jump
- - Detailed gameplay walkthroughs can be found on [John Romero's page](https://rome.ro/dangerous-dave) and [GameSpot](https://gamefaqs.gamespot.com/pc/581164-dangerous-dave/faqs/10991)
+ - Detailed gameplay walkthroughs can be found on [John Romero's page](https://rome.ro/dangerous-dave) and [GameSpot](https://gamefaqs.gamespot.com/pc/581164-dangerous-dave/faqs/10991).
 
 ## Misc
 
 - The project is almost a identical replica - the only thing that wasn't implemented was the enemies, due to the project's deadline.
 - Yes, we plan on making updates in the future.
 
-## ![New Relic logo icon](https://newrelic.com/static-assets/images/icons/avatar-newrelic.png) New Relic Data Driven Dave Challenge
+## ![New Relic logo icon](https://newrelic.com/static-assets/images/icons/avatar-newrelic.png) New Relic Data Driven Dave Workshop Challenge
 
-If you've found this repo because of an in-booth contest at a conference, you have the chance to win a cool prize in 3 simple steps:
+If you've found this repo because of a workshop or an in-booth contest at a conference, you have the chance to win a cool prize in 3 simple steps:
 1. Clone this repository, and complete the New Relic instrumentation prerequisites.
 2. Play the game, and stop by the **New Relic** booth to show off your game stats dashboard. (you will be rewarded for this effort)
-<!-- 3. We will pick a random winner at the booth -->
 3. If you have the high score, you win the grand prize!
 
 # Dangerous Dave Replica
