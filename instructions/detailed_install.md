@@ -1,15 +1,15 @@
 # Detailed installation instructions
-Here are the excruciatingly step-by-step instructions for installing Data Driven Dave. These instructions are largely \*nix specific (which usually includes MacOS but I've inlcuded some MacOS specific steps. However, as always YMMV).
+Here are the excruciatingly step-by-step instructions for installing Data Driven Dave. These instructions are largely Linux/UNIX specific (which usually includes MacOS but I've inlcuded some MacOS specific steps. However, as always your mileage may vary).
 
-First, the github repo is https://github.com/devreldragon/data-driven-dave
+First, the github repo is https://github.com/devreldragon/data-driven-dave-workshop
 
 ## STEP 1: Ensuring python and pip are installed. 
 ### First check Python: 
 Open a terminal window and type:
-`python --version`
+`python3 --version`
 
 ### Next check Pip: 
-In that terman, type:
+In that terminal window, type:
 `pip --version`
 
 or possibly
@@ -19,9 +19,9 @@ or possibly
 
 NOTE: pip might be installed but not in your path. 
 
-If either python3 or pip isn't present, install it using instructions appropriate to your operating system. 
+If either python3 or pip isn't present, install it using instructions appropriate to your operating system. See [python.org](https://www.python.org/) for more information.
 
-## STEP 2: (optional but a good idea: Install the python virtual environment (venv)
+## STEP 2: (optional, but a good idea) Install the python virtual environment (venv)
 This step is optional, but ensures your python modules and versions aren't stomping all over each other.
 
 `sudo pip install virtualenv`
