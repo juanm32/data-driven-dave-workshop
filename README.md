@@ -17,22 +17,23 @@ We hope you enjoy!
 
 ## Prerequisites
 
-- You'll need a New Relic account. The good news is that you can create a [free account here](https://newrelic.com/signup) (no credit card required).
 - To compile the program, you must have Python 3 installed.
-- You will need to install the following packages using `pip3` before starting the program. You may wish to install these packages in a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/).
+- Install the game on your local machine either by downloading and unzipping this repo, or using git\*.
+- You will need to install the following packages using `pip3` before running the program. You may wish to install these packages in a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/).
   - pygame
   - newrelic
 
   Run this command to install all the required packages:  
     `pip3 install -r requirements.txt`
 
+- You'll need a New Relic account. The good news is that you can create a [free account here](https://newrelic.com/signup) (no credit card required).
 - New Relic instrumentation
   - Update the newrelic.ini file by replacing INSERT_YOUR_INGEST_LICENSE_KEY_HERE with your account's [ingest license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/). 
   - Edit the game_stats.json file by replacing "YOUR_ACCOUNT_ID" with your 7-digit [account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/account-id/). **THERE ARE EIGHT (8) PLACES TO MAKE THIS CHANGE, NOT JUST ONE**. 
   - Copy the modified JSON and [import the dashboard](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/introduction-dashboards/#dashboards-import) into your New Relic account. 
       - If this will be the first dashboard in your account, the **Import dashboard** button will not appear on the screen. You will first need to [Create a new dashboard](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/introduction-dashboards/#dashboards-create-new).
 
-Refer to our [detailed instructions](instructions/detailed_install.md) for step by step info, pictures, troubleshooting, etc.
+\*Refer to our [detailed instructions](instructions/detailed_install.md) for step by step info, pictures, troubleshooting, etc.
 
 
 ## Running the program
