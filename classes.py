@@ -1487,7 +1487,7 @@ class Player(Dynamic):
 
         # intentionally fail the application with a division by zero error
         score = self.score
-        rnd = random.randint(0, 3)
+        rnd = random.randint(0, 10)
         try:
             score = score / rnd
         except ZeroDivisionError as err:
