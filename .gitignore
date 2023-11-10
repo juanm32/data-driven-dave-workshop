@@ -5,3 +5,5 @@ env/
 # OS generated files
 .idea/
 *.pyc
+.DS_Store
+.gitignore
